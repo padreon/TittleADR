@@ -94,8 +94,7 @@ class Main extends PluginBase {
                 }
 
                 break;
-            case 'tags':
-                $player::getInstance()->createTag(new TagInfo("fake"));
+            case 'tags';
                 break;
         }
         return true;
