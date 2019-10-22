@@ -1,0 +1,14 @@
+name: TitleADR
+api: [3.0.0]
+main: padreon\TittleADR\Main
+version: 3.0.0
+author: padreon
+commands:
+  tags:
+    default: true
+    permission: player.tags.ui
+    description: "open ui tags player"
+  settag:
+    default: op
+    permission: set.player.tags
+    description: "set tag player"

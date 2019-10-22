@@ -1,0 +1,13 @@
+#How to create a tag
+#0: "Number"
+# - permission
+# - "Tags"
+0:
+  - settag.permission.tag
+  - "[tag1]"
+1:
+  - settag.permission.tag3
+  - "[xaxa4]"
+2:
+  - settag.adreon.test
+  - "xaxa6"
