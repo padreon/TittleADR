@@ -97,6 +97,8 @@ class Main extends PluginBase
 
                 break;
             case 'tags';
+	public function Tag($sender);
+		break;
         }
         return true;
     }
