@@ -25,8 +25,8 @@ use pocketmine\utils\TextFormat;
 use Frago9876543210\Specter\Specter;
 use jojoe77777\FormAPI\SimpleForm;
 
-class Main extends PluginBase {
-	
+class Main extends PluginBase
+{
     public $myConfig;
 
     /**
@@ -49,7 +49,6 @@ class Main extends PluginBase {
     {
         $this->getServer()->getLogger()->info("plugin disable");
     }
-
 
     /**
      * @param CommandSender $sender
