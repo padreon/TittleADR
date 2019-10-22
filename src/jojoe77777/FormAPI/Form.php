@@ -7,7 +7,7 @@ namespace jojoe77777\FormAPI;
 use pocketmine\form\Form as IForm;
 use pocketmine\Player;
 
-abstract class Form implements IForm{
+abstract class Form implements IForm {
 
     /** @var array */
     protected $data = [];
