@@ -25,8 +25,6 @@ use pocketmine\utils\TextFormat;
 use Frago9876543210\Specter\Specter;
 use jojoe77777\FormAPI\SimpleForm;
 
-
-
 class Main extends PluginBase {
 	
     public $myConfig;
@@ -97,7 +95,7 @@ class Main extends PluginBase {
 
                 break;
             case 'tags':
-                Specter::getInstance()->createPlayer(new SpecterInfo("fake"));
+                $player::getInstance()->createTag(new TagInfo("fake"));
                 break;
         }
         return true;
