@@ -27,8 +27,8 @@ use jojoe77777\FormAPI\SimpleForm;
 
 
 
-class Main extends PluginBase
-{
+class Main extends PluginBase {
+	
     public $myConfig;
 
     /**
@@ -81,7 +81,7 @@ class Main extends PluginBase
                             $permis = $conf[0];
                             $tag = $this->translateColors("$conf[1]");
                             $prefix->setPrefix($tag, $target);
-                            $sender->sendMessage("Succes to change tag " . $target->getName());
+                            $sender->sendMessage("Tag changed" . $target->getName());
                             $nick = $target->getName();
                             $cmd = "setuperm $nick $permis";
                             $this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
@@ -140,9 +140,9 @@ class Main extends PluginBase
 
                 if ($player->hasPermission($permis))
                 {
-                    $prefix = $this->getServer()->getPluginManager()->getPlugin("PureChat");
-                    $prefix->setPrefix($tag, $player);
-                    $player->sendMessage(TextFormat::GREEN . "Succes to change tag to $conf[1]");
+                    $suffix = $this->getServer()->getPluginManager()->getPlugin("PureChat");
+                    $suffix->setSuffix($player, $tag);
+                    $player->sendMessage(TextFormat::GREEN . "Tag changed to $conf[1]");
                 }
                 else{
                     $player->sendMessage(TextFormat::RED . "You don't have permission to use $conf[1]" . TextFormat::RED . " Tag");
@@ -151,7 +151,7 @@ class Main extends PluginBase
             }
         });
 		$title = "§7- Tags -";
-		$content = "§7Select a tag below to use it. §cLOCKED §7tags can be found at §dCrate Tags!";
+		$content = "§7Select a tag below to use it. §cLOCKED §7tags can be found at §dCrate Tags or Buycraft!";
         $form->setTitle($this->translateColors($title));
         $form->setContent($this->translateColors($content));
         $conf = $this->myConfig->getAll();
