@@ -4,8 +4,7 @@ declare(strict_types = 1);
 
 namespace jojoe77777\FormAPI;
 
-class CustomForm extends Form implements Listener {
-
+class CustomForm extends implements Form {
     private $labelMap = [];
 
     /**
