@@ -27,7 +27,7 @@ use jojoe77777\FormAPI\SimpleForm;
 
 
 
-class Main extends PluginBase {
+class Main extends PluginBase implements Listener {
 	
     public $myConfig;
 
