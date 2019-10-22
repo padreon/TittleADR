@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace jojoe77777\FormAPI;
 
-class ModalForm extends implements Form {
+class ModalForm extends Form {
 
     /** @var string */
     private $content = "";
