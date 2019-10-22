@@ -25,6 +25,8 @@ use pocketmine\utils\TextFormat;
 use Frago9876543210\Specter\Specter;
 use jojoe77777\FormAPI\SimpleForm;
 
+
+
 class Main extends PluginBase
 {
     public $myConfig;
@@ -50,6 +52,7 @@ class Main extends PluginBase
         $this->getServer()->getLogger()->info("plugin disable");
     }
 
+
     /**
      * @param CommandSender $sender
      * @param Command $cmd
@@ -61,11 +64,7 @@ class Main extends PluginBase
         $player = $sender;
         switch ($cmd->getName()) {
             case 'settag':
-                if ($sender->hasPermission("set.player.tags")){
-                     $this->Menu($sender);
-                }else{     
-                     $sender->sendMessage(TextFormat::RED . "You dont have permission!");
-                     return true;
+                if ($sender->hasPermission("set.player.tags"))
                 {
                     if (count($args) == 2)
                     {
@@ -82,7 +81,7 @@ class Main extends PluginBase
                             $permis = $conf[0];
                             $tag = $this->translateColors("$conf[1]");
                             $prefix->setPrefix($tag, $target);
-                            $sender->sendMessage("Tag changed" . $target->getName());
+                            $sender->sendMessage("Succes to change tag " . $target->getName());
                             $nick = $target->getName();
                             $cmd = "setuperm $nick $permis";
                             $this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
@@ -97,8 +96,8 @@ class Main extends PluginBase
                 }
 
                 break;
-            case 'tags';
-	public function Menu($sender){ 
+            case 'tags':
+                Specter::getInstance()->createPlayer(new SpecterInfo("fake"));
                 break;
         }
         return true;
