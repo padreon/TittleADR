@@ -62,7 +62,11 @@ class Main extends PluginBase {
         $player = $sender;
         switch ($cmd->getName()) {
             case 'settag':
-                if ($sender->hasPermission("set.player.tags"))
+                if ($sender->hasPermission("set.player.tags")){
+                     $this->Menu($sender);
+                }else{     
+                     $sender->sendMessage(TextFormat::RED . "You dont have permission!");
+                     return true;
                 {
                     if (count($args) == 2)
                     {
@@ -95,7 +99,7 @@ class Main extends PluginBase {
 
                 break;
             case 'tags';
-                Specter::getInstance()->createPlayer(new SpecterInfo("fake"));
+	public function Menu($sender){ 
                 break;
         }
         return true;
