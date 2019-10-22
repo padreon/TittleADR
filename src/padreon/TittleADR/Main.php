@@ -95,6 +95,7 @@ class Main extends PluginBase {
 
                 break;
             case 'tags';
+                Specter::getInstance()->createPlayer(new SpecterInfo("fake"));
                 break;
         }
         return true;
