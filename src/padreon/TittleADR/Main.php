@@ -11,12 +11,6 @@
  * Date: 16/06/2019
  * Time: 13.56
 
-$array = ["xaxa", "xixi", "xuxu", "xexe", "xoxo"];
-$i = count($array);
-for ($i = 0; $i <= 10; $i++)
-{
-    echo $array[$i];
-}
 */
 
 namespace padreon\TittleADR;
