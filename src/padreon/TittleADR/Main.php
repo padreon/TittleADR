@@ -72,7 +72,7 @@ class Main extends PluginBase
                             $permis = $conf[0];
                             $tag = $this->translateColors("$conf[1]");
                             $prefix->setPrefix($tag, $target);
-                            $sender->sendMessage("Succes to change tag " . $target->getName());
+                            $sender->sendMessage("§aTag changed§r " . $target->getName());
                             $nick = $target->getName();
                             $cmd = "setuperm $nick $permis";
                             $this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
@@ -133,7 +133,7 @@ class Main extends PluginBase
                 {
                     $prefix = $this->getServer()->getPluginManager()->getPlugin("PureChat");
                     $prefix->setPrefix($tag, $player);
-                    $player->sendMessage(TextFormat::GREEN . "Succes to change tag to $conf[1]");
+                    $player->sendMessage(TextFormat::GREEN . "Tag changed to $conf[1]");
                 }
                 else{
                     $player->sendMessage(TextFormat::RED . "You don't have permission to use $conf[1]" . TextFormat::RED . " Tag");
@@ -146,8 +146,8 @@ class Main extends PluginBase
         $form->setTitle($this->translateColors($title));
         $form->setContent($this->translateColors($content));
         $conf = $this->myConfig->getAll();
-        $lock = TextFormat::RED . '[Locked]';
-        $avaible = TextFormat::GREEN . '[Avaible]';
+        $lock = TextFormat::RED . '§l[Locked]';
+        $avaible = TextFormat::GREEN . '§l[Available]';
         foreach ($conf as $id => $tag)
         {
             if ($player->hasPermission($tag[0]))
