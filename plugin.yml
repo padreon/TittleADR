@@ -7,7 +7,7 @@ commands:
   tags:
     default: true
     permission: player.tags.ui
-    description: "open ui tags player"
+    description: "open a Tags UI"
   settag:
     default: op
     permission: set.player.tags
