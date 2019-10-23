@@ -10,7 +10,6 @@
  * Created by PhpStorm.
  * Date: 16/06/2019
  * Time: 13.56
-
 */
 
 namespace padreon\TittleADR;
@@ -22,7 +21,6 @@ use pocketmine\command\Command;
 use pocketmine\utils\Config;
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\utils\TextFormat;
-use Frago9876543210\Specter\Specter;
 use jojoe77777\FormAPI\SimpleForm;
 
 
@@ -31,24 +29,15 @@ class Main extends PluginBase
 {
     public $myConfig;
 
-    /**
-     *
-     */
     public function onEnable()
-    {
+	{
         @mkdir($this->getDataFolder());
         $this->saveResource("config.yml");
         $this->myConfig = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-        /** @var jumlah tag yg di load $te */
-        $te = count($this->myConfig->getAll());
-        $this->getServer()->getLogger()->info("$te tags");
     }
 
-    /**
-     *
-     */
     public function onDisable()
-    {
+	{
         $this->getServer()->getLogger()->info("plugin disable");
     }
 
@@ -60,9 +49,11 @@ class Main extends PluginBase
      * @param array $args
      * @return bool
      */
-    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
+    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool
+	{
         $player = $sender;
-        switch ($cmd->getName()) {
+        switch ($cmd->getName()) 
+		{
             case 'settag':
                 if ($sender->hasPermission("set.player.tags"))
                 {
@@ -97,7 +88,7 @@ class Main extends PluginBase
 
                 break;
             case 'tags':
-                Specter::getInstance()->createPlayer(new SpecterInfo("fake"));
+                $this->openForm($player);
                 break;
         }
         return true;
@@ -105,28 +96,28 @@ class Main extends PluginBase
 	
 	public function translateColors($message) 
 	{
-	$message = str_replace("§0", TextFormat::BLACK, $message);
-	$message = str_replace("§1", TextFormat::DARK_BLUE, $message);
-	$message = str_replace("§2", TextFormat::DARK_GREEN, $message);
-	$message = str_replace("§3", TextFormat::DARK_AQUA, $message);
-	$message = str_replace("§4", TextFormat::DARK_RED, $message);
-	$message = str_replace("§5", TextFormat::DARK_PURPLE, $message);
-	$message = str_replace("§6", TextFormat::GOLD, $message);
-	$message = str_replace("§7", TextFormat::GRAY, $message);
-	$message = str_replace("§8", TextFormat::DARK_GRAY, $message);
-	$message = str_replace("§9", TextFormat::BLUE, $message);
-	$message = str_replace("§a", TextFormat::GREEN, $message);
-	$message = str_replace("§b", TextFormat::AQUA, $message);
-	$message = str_replace("§c", TextFormat::RED, $message);
-	$message = str_replace("§d", TextFormat::LIGHT_PURPLE, $message);
-	$message = str_replace("§e", TextFormat::YELLOW, $message);
-	$message = str_replace("§f", TextFormat::WHITE, $message);
-	$message = str_replace("§k", TextFormat::OBFUSCATED, $message);
-	$message = str_replace("§l", TextFormat::BOLD, $message);
-	$message = str_replace("§m", TextFormat::STRIKETHROUGH, $message);
-	$message = str_replace("§n", TextFormat::UNDERLINE, $message);
-	$message = str_replace("§o", TextFormat::ITALIC, $message);
-	$message = str_replace("§r", TextFormat::RESET, $message);
+	$message = str_replace("&0", TextFormat::BLACK, $message);
+	$message = str_replace("&1", TextFormat::DARK_BLUE, $message);
+	$message = str_replace("&2", TextFormat::DARK_GREEN, $message);
+	$message = str_replace("&3", TextFormat::DARK_AQUA, $message);
+	$message = str_replace("&4", TextFormat::DARK_RED, $message);
+	$message = str_replace("&5", TextFormat::DARK_PURPLE, $message);
+	$message = str_replace("&6", TextFormat::GOLD, $message);
+	$message = str_replace("&7", TextFormat::GRAY, $message);
+	$message = str_replace("&8", TextFormat::DARK_GRAY, $message);
+	$message = str_replace("&9", TextFormat::BLUE, $message);
+	$message = str_replace("&a", TextFormat::GREEN, $message);
+	$message = str_replace("&b", TextFormat::AQUA, $message);
+	$message = str_replace("&c", TextFormat::RED, $message);
+	$message = str_replace("&d", TextFormat::LIGHT_PURPLE, $message);
+	$message = str_replace("&e", TextFormat::YELLOW, $message);
+	$message = str_replace("&f", TextFormat::WHITE, $message);
+	$message = str_replace("&k", TextFormat::OBFUSCATED, $message);
+	$message = str_replace("&l", TextFormat::BOLD, $message);
+	$message = str_replace("&m", TextFormat::STRIKETHROUGH, $message);
+	$message = str_replace("&n", TextFormat::UNDERLINE, $message);
+	$message = str_replace("&o", TextFormat::ITALIC, $message);
+	$message = str_replace("&r", TextFormat::RESET, $message);
 	return $message;
 	}
 	
@@ -150,13 +141,13 @@ class Main extends PluginBase
 
             }
         });
-		$title = "§7- Tags -";
-		$content = "§7Select a tag below to use it. §cLOCKED §7tags can be found at §dCrate Tags!";
+		$title = "Tags";
+		$content = "Choose your tag";
         $form->setTitle($this->translateColors($title));
         $form->setContent($this->translateColors($content));
         $conf = $this->myConfig->getAll();
-        $lock = TextFormat::RED . 'LOCKED';
-        $avaible = TextFormat::GREEN . 'AVAILABLE';
+        $lock = TextFormat::RED . '[Locked]';
+        $avaible = TextFormat::GREEN . '[Avaible]';
         foreach ($conf as $id => $tag)
         {
             if ($player->hasPermission($tag[0]))
