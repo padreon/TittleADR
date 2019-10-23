@@ -141,8 +141,8 @@ class Main extends PluginBase
 
             }
         });
-		$title = "Tags";
-		$content = "Choose your tag";
+		$title = "§l§aTags";
+		$content = "§3Choose your tag";
         $form->setTitle($this->translateColors($title));
         $form->setContent($this->translateColors($content));
         $conf = $this->myConfig->getAll();
