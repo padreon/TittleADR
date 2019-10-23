@@ -96,9 +96,6 @@ class Main extends PluginBase
                 }
 
                 break;
-            case 'tags';
-    public function openForm(Player $player) {
-		break;
         }
         return true;
     }
