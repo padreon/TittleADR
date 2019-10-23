@@ -146,8 +146,8 @@ class Main extends PluginBase
         $form->setTitle($this->translateColors($title));
         $form->setContent($this->translateColors($content));
         $conf = $this->myConfig->getAll();
-        $lock = TextFormat::RED . '§l[Locked]';
-        $avaible = TextFormat::GREEN . '§l[Available]';
+        $lock = TextFormat::RED . '§l§cLOCKED';
+        $avaible = TextFormat::GREEN . '§l§aAVAILABLE';
         foreach ($conf as $id => $tag)
         {
             if ($player->hasPermission($tag[0]))
