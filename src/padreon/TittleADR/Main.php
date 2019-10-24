@@ -141,13 +141,13 @@ class Main extends PluginBase
 
             }
         });
-		$title = "Tags";
-		$content = "Choose your tag";
+		$title = "§l§aTags";
+		$content = "§3Choose your tag";
         $form->setTitle($this->translateColors($title));
         $form->setContent($this->translateColors($content));
         $conf = $this->myConfig->getAll();
-        $lock = TextFormat::RED . '§l[Locked]';
-        $avaible = TextFormat::GREEN . '§l[Available]';
+        $lock = TextFormat::RED . '§l§cLOCKED';
+        $avaible = TextFormat::GREEN . '§l§aAVAILABLE';
         foreach ($conf as $id => $tag)
         {
             if ($player->hasPermission($tag[0]))
