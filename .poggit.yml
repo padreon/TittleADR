@@ -4,4 +4,8 @@ branches:
 projects:
   TittleADR:
     path: ""
+
+    libs:
+      - src: jojoe77777\FormAPI\FormAPI
+        version: ^1.3.0
 ...

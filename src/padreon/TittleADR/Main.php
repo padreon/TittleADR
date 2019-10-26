@@ -27,6 +27,7 @@ use jojoe77777\FormAPI\SimpleForm;
 
 class Main extends PluginBase
 {
+    /**@var Config  */
     public $myConfig;
 
     public function onEnable()
@@ -51,7 +52,6 @@ class Main extends PluginBase
      */
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool
 	{
-        $player = $sender;
         switch ($cmd->getName()) 
 		{
             case 'settag':
@@ -88,7 +88,16 @@ class Main extends PluginBase
 
                 break;
             case 'tags':
-                $this->openForm($player);
+                if ($sender->hasPermission("player.tags.ui"))
+                {
+                    if ($sender instanceof Player){
+                        $this->openForm($sender);
+                        return true;
+                    }
+                    $sender->sendMessage("Player only!");
+                    return true;
+                }
+                $sender->sendMessage(TextFormat::RED. "You don't have permission");
                 break;
         }
         return true;
